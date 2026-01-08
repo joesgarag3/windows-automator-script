@@ -1,2 +1,2 @@
 # windows-automator-script
-Colección de scripts de automatización para Windows diseñados para optimizar tareas recurrentes de soporte técnico. El objetivo es reducir los tiempos de respuesta y asegurar la consistencia en los diagnósticos de red.
+Collection of Windows automation scripts designed to optimize recurring technical support tasks. The goal is to minimize response times and ensure consistency in network diagnostics.
