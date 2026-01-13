@@ -22,7 +22,7 @@ def audit():
 
     disk_total_gb = round(disk.total/(1024**3), 2)
     disk_used_gb = round(disk.used/(1024**3), 2)
-    disk_free_gb = round(disk.used/(1024**3), 2)
+    disk_free_gb = round(disk.free/(1024**3), 2)
     return (
         f"CPU usage: {cpu_usage}%\n"
         f"Processor: {processor}\n"
@@ -38,3 +38,4 @@ if __name__ == "__main__":
 
 path_report = os.path.abspath(name)
 print(f"The hardward report is saved on: {path_report}")
+
