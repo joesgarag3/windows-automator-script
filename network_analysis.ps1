@@ -8,8 +8,10 @@ $internetConnection = Test-Connection -ComputerName google.com -Count 1 -Quiet
 $netConnection = (Get-NetTCPConnection -State Established).RemoteAddress 
 
 $DnsConnection = $netConnection | Select-Object -Unique | ForEach-Object {
-    $DNSName = (Resolve-DnsName $_ -ErrorAction SilentlyContinue 2>$null).NameHost
-    if ($DNSName){$DNSName}else{"Unknown"}
+    $ip = $_
+    $DNSName = Resolve-DnsName $ip -ErrorAction SilentlyContinue 
+    if ($DNSName.NameHost){"$ip -----> $($DNSName.NameHost)"}
+    else{"$ip ----> Unknown"}
 }
        
     
@@ -24,9 +26,9 @@ else{
 }
 
 
-Write-Host "*** IP ADRESS : ***"
+Write-Host "*** IP ADRESS : ***" -ForegroundColor Blue
  $ipAddress 
-Write-Host "*** CONNECTIVITY : ***"
+Write-Host "*** CONNECTIVITY : ***" -ForegroundColor Green
 $internetConnection 
-Write-Host "*** NETWORK STATUS : ***"
+Write-Host "*** NETWORK STATUS : ***" -ForegroundColor Cyan
 $DnsConnection
